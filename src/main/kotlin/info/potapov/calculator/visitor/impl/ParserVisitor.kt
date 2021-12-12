@@ -45,7 +45,7 @@ private class ParserVisitor : TokenVisitor {
     }
 
     private fun visitRightBrace() {
-        while (stack.isNotEmpty() && lastIsLeftBrace()) {
+        while (stack.isNotEmpty() && lastIsNotLeftBrace()) {
             reversePolandNotation.add(stack.pop())
         }
 
@@ -56,7 +56,7 @@ private class ParserVisitor : TokenVisitor {
         }
     }
 
-    private fun lastIsLeftBrace() = stack.first() !== LeftBraceToken
+    private fun lastIsNotLeftBrace() = stack.first() !== LeftBraceToken
 
     override fun visit(operationToken: OperationToken) {
         addFromStack(operationToken)
