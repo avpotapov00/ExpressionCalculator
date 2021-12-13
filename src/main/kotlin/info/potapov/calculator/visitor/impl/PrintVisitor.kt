@@ -37,17 +37,6 @@ private class PrintVisitor: TokenVisitor {
         result.add(content)
     }
 
-    companion object {
-
-        fun visitAll(tokens: Tokens) {
-            val visitor = PrintVisitor()
-            tokens.forEach { it.accept(visitor) }
-
-            println(visitor.result.joinToString(SPACE))
-        }
-
-    }
-
 }
 
 private const val SPACE = " "

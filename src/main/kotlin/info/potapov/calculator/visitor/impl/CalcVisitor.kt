@@ -45,15 +45,4 @@ private class CalcVisitor : TokenVisitor {
         return stack.removeLastOrNull() ?: throw IllegalStateException("Incorrect notation")
     }
 
-    companion object {
-
-        fun visitAll(tokens: Tokens): Double {
-            val visitor = CalcVisitor()
-
-            tokens.forEach { it.accept(visitor) }
-
-            return visitor.pop()
-        }
-    }
-
 }
